@@ -1,0 +1,94 @@
+Create the structure of the site
+Two html files - one for scores and one for questions (index)
+Navbar - contains nav link for 'take quiz' and 'scores'
+
+Index has a header (logo)
+divs:
+1- Intro (visible) - hidden after you click the start button
+2- questions - visible after you click the start button. Hidden after questions end
+3- Final score - visible after questions end
+4- Score div - used to take the username
+
+Javascript:
+Two javascript files. One index.js (for index page) and one score.js for scores page
+
+Index.js
+Globally defined array of questions
+Globally defined HTML elements - timer, div element IDs, buttons
+Add a click event on the btn start - calls function startQuiz
+startQuiz function - hides intro div, show questions div (loop through) and call getQuestions, call start timer function
+
+startTimer function: 
+setInterval, at 1000ms interval. 
+When time left = 0, stop function
+Else, call
+
+Stop function:
+Collect score
+Hide questions
+Show entry field for username
+
+'submit score' - Btn click
+Store score into local storage
+Transfer you to scores.html page
+
+scores.html
+Display the scores from scores.js
+Button to take you back to the quiz
+
+scores.js
+Check if there are any scores in the local storage and display into the scores container in scores.html
+
+
+Nice to have:
+Randomize questions and choices - use shuffle
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+
+
+// list of all questions, choices, and answers
+var questions = [
+  {
+    title: "Commonly used data types DO NOT include:",
+    choices: ["strings", "booleans", "alerts", "numbers"],
+    answer: "alerts"
+  },
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses"
+  },
+  {
+    title: "Arrays in JavaScript can be used to store ____.",
+    choices: [
+      "numbers and strings",
+      "other arrays",
+      "booleans",
+      "all of the above"
+    ],
+    answer: "all of the above"
+  },
+  {
+    title:
+      "String values must be enclosed within ____ when being assigned to variables.",
+    choices: ["commas", "curly brackets", "quotes", "parentheses"],
+    answer: "quotes"
+  },
+  {
+    title:
+      "A very useful tool used during development and debugging for printing content to the debugger is:",
+    choices: ["JavaScript", "terminal / bash", "for loops", "console.log"],
+    answer: "console.log"
+  }
+];
+
+
+
