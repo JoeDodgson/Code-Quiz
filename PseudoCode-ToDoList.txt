@@ -2,8 +2,7 @@ DONE Two html files - one for scores and one for questions (index)
 DONE Create a style.css and a script.js
 
 
-
-Index:
+Index.html:
 DONE Navbar - contains nav link for 'take quiz' and 'scores'
 DONE Properly style the navbar
 DONE Intro (visible) - create the div and content
@@ -12,21 +11,28 @@ DONE 2- questions -
 DONE 3- Final score - visible after questions end
 DONE 4- Score div - used to take the username
 
-Javascript:
-Two javascript files. One index.js (for index page) and one score.js for scores page
 
-Index.js
+script.js
 DONE Globally defined array of questions
-Globally defined HTML elements - timer, div element IDs, buttons
-Add a click event on the btn start - calls function startQuiz
-startQuiz function - hides intro div, show questions div (loop through) and call getQuestions, call start timer function
-Hide intro you click the start button
-Make questions visible after you click the start button. And hide after questions end
+DONE Globally defined HTML elements - timer, div element IDs, buttons
+DONE Add a click event on the btn start - Calls function startQuiz
+DONE startQuiz function - hides intro div, show questions div (loop through) and call getQuestions, call start timer function
 
-startTimer function: 
-setInterval, at 1000ms interval. 
-When time left = 0, stop function
-Else, call
+DONE startTimer function: 
+DONE setInterval, at 1000ms interval. 
+DONE When time left = 0, stop function
+DONE Else
+DONE Display question
+DONE Display answer
+
+Add a click event on the choices:
+Stop event bubbling
+If the clicked text is exactly equal to the answer, then change text to green for 0.2 seconds and add one to the score
+Else
+Change text to red for 0.2 seconds and subtract 5 from the time
+Either way, render the next question
+
+Have the stop function triggered by the time reaching zero or reaching the last question number
 
 Stop function:
 Collect score
@@ -37,17 +43,19 @@ Show entry field for username
 Store score into local storage
 Transfer you to scores.html page
 
+
 scores.html
 Display the scores from scores.js
 Button to take you back to the quiz
+
 
 scores.js
 Check if there are any scores in the local storage and display into the scores container in scores.html
 
 style.css
-Nice colour and fonts for everything
-Sort out issue with timer dropping onto new line
-
+DONE Nice colour and fonts for everything
+DONE Sort out issue with timer dropping onto new line
+Separate styling into the CSS file
 
 Nice to have:
 -Randomize questions and choices - use shuffle
@@ -62,3 +70,4 @@ function shuffle(a) {
     return a;
 }
 -Have the timer turn red and make a sound in the last 10 seconds
+-Sound a noise every time you select a correct or incorrect answer
