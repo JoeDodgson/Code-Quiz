@@ -85,6 +85,7 @@ function endQuiz(){
     submitScore.setAttribute("style","display:block;");
     scoreTotal += Math.floor( secondsLeft / 5);
     userScore.textContent = scoreTotal;
+    countdownContainer.setAttribute("style","display:none;");
 }
 
 function renderTime(){
@@ -92,16 +93,16 @@ function renderTime(){
 }
 
 function renderQuestion(){
+    //Populate the question text
     questionText.textContent = questions[questionNum].title;
-    // prevNumChoices = 4;
-    // for(var i=0; i < prevNumChoices; i++){
-    //     console.log(choices.children[0]);
-    // }
+    choicesChild = choices.firstElementChild;
+    //Clear out the previous question's choices
     while(choicesChild) {
         choices.removeChild(choicesChild);
         choicesChild = choices.firstElementChild;
     }
     
+    //Populate this question's choices
     for(var i=0; i < questions[questionNum].choices.length; i++){
         var newLi = document.createElement("li");
         newLi.textContent = questions[questionNum].choices[i];
@@ -109,6 +110,28 @@ function renderQuestion(){
     }
 }
 
+choices.addEventListener("click",function(){
+    if(event.target.textContent === questions[questionNum].answer){
+        event.target.setAttribute("style","background-color: #00e300") ;
+        //set a delay of 0.2seconds
+        scoreTotal++;
+    }
+    else{
+        event.target.setAttribute("style","background-color: #e30000") ;
+        secondsLeft -= 5;
+    }
+    //Allow the user to see the background-colour for a fraction of a seconds before displaying the next question
+    setTimeout(function(){
+        if (questionNum === questions.length - 1) {
+            endQuiz();
+        }
+        else {
+            questionNum++;
+            renderQuestion();
+        }
+    }, 200
+    );
+})
 
   
 //Containers to turn on / off:

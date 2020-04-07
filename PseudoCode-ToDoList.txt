@@ -25,28 +25,27 @@ DONE Else
 DONE Display question
 DONE Display answer
 
-Add a click event on the choices:
-Stop event bubbling
-If the clicked text is exactly equal to the answer, then change text to green for 0.2 seconds and add one to the score
-Else
-Change text to red for 0.2 seconds and subtract 5 from the time
-Either way, render the next question
+DONE Add a click event on the choices:
+DONE If the clicked text is exactly equal to the answer, then change text to green for 0.2 seconds and add one to the score
+DONE Else Change text to red for 0.2 seconds and subtract 5 from the time
+DONE Either way, render the next question
 
-Have the stop function triggered by the time reaching zero or reaching the last question number
+DONE Have the stop function triggered by the time reaching zero or reaching the last question number
 
 Stop function:
-Collect score
-Hide questions
-Show entry field for username
+DONE Collect score
+DONE Hide questions
+DONE Show entry field for username
 
 'submit score' - Btn click
 Store score into local storage
-Transfer you to scores.html page
+Transfer your to scores.html page
+
+Button to clear scores
 
 
 scores.html
 Display the scores from scores.js
-Button to take you back to the quiz
 
 
 scores.js
@@ -56,6 +55,9 @@ style.css
 DONE Nice colour and fonts for everything
 DONE Sort out issue with timer dropping onto new line
 Separate styling into the CSS file
+
+General:
+Comment up everything nice and good
 
 Nice to have:
 -Randomize questions and choices - use shuffle
