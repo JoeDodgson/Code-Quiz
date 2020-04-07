@@ -39,17 +39,12 @@ DONE Show entry field for username
 
 'submit score' - Btn click
 Store score into local storage
-Transfer your to scores.html page
+Update the scores shown in the scores.html page
 
-Button to clear scores
+'Clear scores' button
+Clears scores out of local storage
+Update the scores shown in the scores.html page
 
-
-scores.html
-Display the scores from scores.js
-
-
-scores.js
-Check if there are any scores in the local storage and display into the scores container in scores.html
 
 style.css
 DONE Nice colour and fonts for everything
@@ -73,3 +68,4 @@ function shuffle(a) {
 }
 -Have the timer turn red and make a sound in the last 10 seconds
 -Sound a noise every time you select a correct or incorrect answer
+-Log the date that the player got their score
