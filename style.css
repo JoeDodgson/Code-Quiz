@@ -1,0 +1,76 @@
+.header-green {
+    height: 40px;
+    background-color: rgb(2, 165, 24);
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.start-button {
+    border: none;
+    background-color: rgb(2, 165, 24);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+      0px;
+    color: white;
+    display: inline-block;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .nav-container {
+    width: 85%;
+    height: 50px;
+    padding-left: 20px;
+  }
+  
+  .nav-link {
+    color: white;
+    width: 175px;
+  }
+  
+  #time-remaining {
+    width: 15%;
+    height: 50px;
+    padding: 8px 40px 8px 0px;
+    float: right;
+  }
+  
+  .main-feature {
+    width:50%;
+    text-align:center;
+    float:none;
+    margin:200px auto auto auto;
+    font-family:'Work Sans', sans-serif;
+  }
+  
+  .guidance-text {
+    margin-top:30px;
+  }
+  
+  .h3 {
+    font-size: 18pt;
+  }
+  
+  .answers {
+    text-align: left;
+    padding-left: 50px;
+    font-size: 14pt;
+  }
+
+  .submit-button {
+      border: none;
+      background-color: rgb(2, 165, 24);
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+      color: white;
+      display: inline-block;
+      font-size: 1rem;
+      margin: 8px;
+      padding: 0px 5px 0px 5px;
+      text-align: center;
+      cursor: pointer;
+    }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!--Header across top of page - includes logo and navbar-->
+    <header>
+
+        <div class="row header-green">
+  
+          <div class="nav-container">
+  
+            <!--Navigation link at the top left of the page-->
+            <nav>
+                <a class="navbar nav-link" href="./scores.html">View Highscores</a>            
+            </nav>
+  
+          </div>
+  
+          <!--Timer at the top right of the page-->
+          <div id="time-remaining">
+            <time>X s</time>  
+          </div>
+  
+        </div>
+    </header>
+
+    <main>
+        <!--Introduction to the code quiz-->
+        <div class="main-feature">
+            <!--Title-->
+            <div>
+                <h1>Coding Quiz Challenge</h1>
+            </div>
+            <!--Guidance for the quiz-->
+            <div class="guidance-text">
+                <p>
+                    Try to answer the following code-related questions within the time limit.
+                </p>
+                <p>
+                    You will gain 1 point per correct answer.
+                </p>
+                <p>
+                    Any incorrect answers will reduce your remaining time by 5 seconds.
+                </p>
+                <p>
+                    There are X questions in total.
+                </p>
+                <p>
+                    If you complete all of the questions, any remaining time will add more points onto your score.
+                </p>
+            </div>
+            <button id="start-quiz" class="start-button">Start Quiz</button>
+        </div>
+
+        <!--Quiz questions-->
+        <div class="main-feature">
+            <!--Question title-->
+            <div class="question">
+                <h3>Question placeholder</h3>
+            </div>
+            <ol class="answers">
+                <li>Answer 1 placeholder</li>
+                <li>Answer 2 placeholder</li>
+                <li>Answer 3 placeholder</li>
+                <li>Answer 4 placeholder</li>
+            </ol>
+        </div>
+
+        <!--Finished quiz page-->
+        <div class="main-feature">
+            <!--Header-->
+            <div>
+                <h3>All done!</h3>
+            </div>
+            <div>
+                <p style="display:inline; float:left;">Your final score is </p><p style="display:inline; float:left;">.</p>
+            </div>
+            <br>
+            <form>
+                <p style="display:inline; float:left;">Enter initials:</p>
+                <div class="form-group" style="display:inline; float:left;">
+                    <input type="text" class="form-control"/>
+                </div>
+                <button style="display:inline; float:left;" id="start-quiz" class="submit-button">Submit</button>
+            </form>
+        </div>
+
+    </main>
+
+</body>
+<script src="./script.js"></script>
+</html>
