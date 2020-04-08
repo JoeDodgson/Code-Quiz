@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css"/>
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   
           <!--Countdown at the top right of the page-->
           <div id="countdown-container">
-            <time style="display:inline;" id="countdown-display">100</time><p style="display:inline;"> s</p>
+            <time style="display:inline;" id="countdown-display">60</time><p style="display:inline;"> s</p>
           </div>
   
         </div>
@@ -85,23 +85,33 @@
             <div>
                 <h3>All done!</h3>
             </div>
-            <div>
-                <p style="display:inline; float:left;">Your final score is </p>
-                <p style="display:inline; float:left;" id="user-score"></p>
-                <p style="display:inline; float:left;">.</p>
+            <div style="display:none;" id="correct-score-container">
+                <p style="display:inline; float:left;">No. correct answers =  </p>
+                <p style="display:inline; float:left; margin-left:10px;" id="user-correct-score"></p>
             </div>
             <br>
-            <form>
-                <p style="display:inline; float:left; text-align: left;">Enter name:</p>
-                <div class="form-group" style="display:inline; float:left;">
+            <div style="display:none" id="time-score-container">
+                <p style="display:inline; float:left;">Remaining time bonus = </p>
+                <p style="display:inline; float:left; margin-left:10px;" id="user-time-score"></p>
+            </div>
+            <br>
+            <div style="display:none" id="total-score-container">
+                <p style="display:inline; float:left;">So your total score =  </p>
+                <p style="display:inline; float:left; margin-left:10px;" id="user-total-score"></p>
+                <p style="display:inline; float:left; margin-left:10px;"> points!</p>
+            </div>
+            <br>
+            <form style="margin-top:30px;">
+                <p style="display:inline; float:left; text-align:left;">Enter name:</p>
+                <div class="form-group" style="display:inline; float:left; width:100px; margin-left:10px; height:100%;">
                     <input type="text" class="form-control" id="name-input"/>
                 </div>
-                <button style="display:inline; float:left;" id="submit-button">Submit</button>
+                <button style="display:inline; float:left; margin:0px 10px 0px 10px;" id="submit-button">Submit</button>
             </form>
         </div>
 
     </main>
 
 </body>
-<script src="./script.js"></script>
+<script src="./assets/index.js"></script>
 </html>

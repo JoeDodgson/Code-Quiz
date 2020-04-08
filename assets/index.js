@@ -44,18 +44,28 @@ var countdownContainer = document.querySelector("#countdown-container");
 var countdownDisplay = document.querySelector("#countdown-display");
 var choices = document.querySelector("#choices");
 var choicesChild = choices.firstElementChild;
-var userScore = document.querySelector("#user-score");
+var scoresDisplay = document.querySelector("#scores-display");
+var scoresChild;
+var userCorrectScore = document.querySelector("#user-correct-score");
+var userTimeScore = document.querySelector("#user-time-score");
+var userTotalScore = document.querySelector("#user-total-score");
+var correctScoreContainer = document.querySelector("#correct-score-container");
+var timeScoreContainer = document.querySelector("#time-score-container");
+var totalScoreContainer = document.querySelector("#total-score-container");
 var questionText = document.querySelector("#question");
 var nameInput = document.querySelector("#name-input");
 var currentPage = document.location.href;
 var username;
 var secondsLeft;
 var interval;
-var scoreTotal = 0;
+var correctScore = 0;
+var timeScore;
+var totalScore;
 var questionIndex;
-var allScores;
+var allScores  = JSON.parse(localStorage.getItem("allScores")) || [];
 var oldScores;
 var today;
+
 
 //Clicking the start button activates the start quiz function
 startBtn.addEventListener("click", startQuiz);
@@ -66,15 +76,15 @@ function startQuiz(){
     intro.setAttribute("style","display:none;");
     countdownContainer.setAttribute("style","display:block;");
     questionsChoices.setAttribute("style","display:block;");
-    scoreTotal = 0;
+    correctScore = 0;
     questionIndex = 0;
     renderQuestion();
     //Set the first question and answer
 };
 
-//Start timer function sets the time to 100 and begins the countdown
+//Start timer function sets the time to 60 and begins the countdown
 function startTimer(){
-    secondsLeft = 100;
+    secondsLeft = 60;
     interval = setInterval(function() {
         secondsLeft--;
         renderTime();
@@ -89,11 +99,36 @@ function startTimer(){
 function endQuiz(){
     questionsChoices.setAttribute("style","display:none;"); 
     submitScore.setAttribute("style","display:block;");
-    scoreTotal += Math.floor( secondsLeft / 5);
-    userScore.textContent = scoreTotal;
     countdownContainer.setAttribute("style","display:none;");
     today = new Date();
     dateOfEntry = today.getHours() + ":" + today.getMinutes() + " on " + today.getDate() + "-" + today.getMonth() + "-" + today.getFullYear()
+    timeScore = Math.floor( secondsLeft / 5);
+    console.log(secondsLeft);
+    console.log(timeScore);
+    
+    totalScore = correctScore + timeScore;
+    userCorrectScore.textContent = correctScore;
+    userTimeScore.textContent = timeScore;
+    userTotalScore.textContent = totalScore;
+
+    setTimeout(function(){
+        correctScoreContainer.setAttribute("style","display:block; margin-top:30px; width:100%;");
+
+        setTimeout(function(){
+            timeScoreContainer.setAttribute("style","display:block; width:100%;");
+
+            setTimeout(function(){
+                totalScoreContainer.setAttribute("style","display:block; width:100%;");
+            }, 1000
+            ); 
+
+        }, 1000
+        ); 
+
+    }, 1000
+    ); 
+
+
 }
 
 function renderTime(){
@@ -121,7 +156,7 @@ function renderQuestion(){
 choices.addEventListener("click",function(){
     if(event.target.textContent === questions[questionIndex].answer){
         event.target.setAttribute("style","background-color: #00e300") ;
-        scoreTotal++;
+        correctScore++;
     }
     else{
         event.target.setAttribute("style","background-color: #e30000") ;
@@ -141,43 +176,30 @@ choices.addEventListener("click",function(){
 })
 
 submitBtn.addEventListener("click",function(){
+    event.preventDefault();
     //If the content of the entry field is blank, alert the user
     if(nameInput.value == ""){
         alert("You must enter a name to submit a score");
     }
     //Store the user's name and score in local storage, then redirect to the Highscores page
     else{
-        debugger
         username = nameInput.value;
-        localStorage.setItem(username, scoreTotal);
-        window.location.href = "./scores.html";
-        //Update the scores show in scores.html
+        //Update the scores array and update the scores displayed in scores.html
         updateScores();
-        console.log("will not reach");
-        console.log("will not reach");
+        //Redirect user to the Highscores page
+        window.location.href = "./scores.html";
     }
-
 }
 )
 
 function updateScores() {
-
-    //retrieve scores from the local storage
-    allScores = localStorage.getItem(JSON.parse("allScores"));
-
-    //Add the new score into the allScores object, but putting it into score order
-    allScores[allScores.length] = {
-    name: username,
-    score: scoreTotal,
-    date: dateOfEntry,
-    };
-
-    //Update the scores on the scores.html page
-
-    //Set the updated allscores scores on the local storage
-    localStorage.setItem("allScores", JSON.stringify(allScores));
-
-
+ 
+    //Then insert the new score into the allScores array - putting it into score order
+    //Then store the updated allScores array into the local storage
+    allScores.push({
+        name: username,
+        score: correctScore,
+        date: dateOfEntry,
+    })
+    localStorage.setItem("allScores",JSON.stringify(allScores));
 }
-
-
