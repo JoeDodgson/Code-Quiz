@@ -37,19 +37,28 @@ DONE Collect score
 DONE Hide questions
 DONE Show entry field for username
 
-'submit score' - Btn click
-Store score into local storage
-Update the scores shown in the scores.html page
+Score summary
+DONE Store score into local storage
+DONE Update the scores shown in the scores.html page
+Text justification is off
+Make the text box size responsive
+Make the 'enter name' field not visible until after the score is displayed
+Make 'all done' title bigger
 
 'Clear scores' button
-Clears scores out of local storage
-Update the scores shown in the scores.html page
+DONE Clears scores out of local storage
+DONE Update the scores shown in the scores.html page
 
+scores.html
+DONE Style the clear highscores button - red and centre
+Use a nice bootstrap table
 
 style.css
 DONE Nice colour and fonts for everything
 DONE Sort out issue with timer dropping onto new line
-Separate styling into the CSS file
+Make navbar text larger
+Check responsiveness of all elements on each page
+Move the styling into the CSS file
 
 General:
 Comment up everything nice and good
@@ -68,4 +77,4 @@ function shuffle(a) {
 }
 -Have the timer turn red and make a sound in the last 10 seconds
 -Sound a noise every time you select a correct or incorrect answer
--Log the date that the player got their score
+-Extra questions in the questions array

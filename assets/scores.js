@@ -5,34 +5,45 @@ var scoresDisplay = document.querySelector("#scores-display");
 var scoresTable = document.querySelector("#scores-table");
 var scoresChild;
 var currentPage = document.location.href;
-var allScores = JSON.parse(localStorage.getItem("allScores")) || [];
+var allScores;
 
 //Add an event for on load to update the scores
 
-
+function getAllScores() {
+  if(localStorage.getItem("allScores") == ""){
+      allScores = [];
+  }else{
+      allScores = JSON.parse(localStorage.getItem("allScores"));
+  }
+}
 
 function renderScores() {
-    if(allScores.length > 0){
-        scoresTable.removeAttribute("class");
-        scoresTable.setAttribute("class","table table-responsive");
-
-        var data = allScores.sort(compareValues("score", "desc"));
-        //Display all the updated scores from the allScores array
-        for(var i=0; i < data.length; i++){
-            var tr = document.createElement("tr");
-            var tdName = document.createElement("td");
-            var tdScore = document.createElement("td");
-            var tdDate = document.createElement("td");
-            tdName.textContent = data[i].name
-            tdScore.textContent = data[i].score
-            tdDate.textContent = data[i].date
-            tr.appendChild(tdName);
-            tr.appendChild(tdScore);
-            tr.appendChild(tdDate);
-            scoresDisplay.appendChild(tr);
-
-        }
-    }   
+  getAllScores();
+  if(allScores.length > 0){
+    scoresTable.removeAttribute("class");
+    scoresTable.setAttribute("class","table table-responsive");
+    
+    var data = allScores.sort(compareValues("score", "desc"));
+    
+    //Display all the updated scores from the allScores array
+    for(var i=0; i < data.length; i++){
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td");
+      var tdScore = document.createElement("td");
+      var tdDate = document.createElement("td");
+      tdName.textContent = data[i].name
+      tdScore.textContent = data[i].score
+      tdDate.textContent = data[i].date
+      tr.appendChild(tdName);
+      tr.appendChild(tdScore);
+      tr.appendChild(tdDate);
+      scoresDisplay.appendChild(tr);
+      
+    }
+  }   
+  else{
+    scoresTable.setAttribute("class","d-none");
+  }
 
 }
 
@@ -62,3 +73,11 @@ function compareValues(key, order = 'asc') {
       );
     };
   }
+
+  clearBtn.addEventListener("click", function(){
+    var confirmClear = confirm("Are you sure you want to clear the Highscores?\nOk = Yes. Cancel = No")
+    if (confirmClear){
+      localStorage.setItem("allScores","");
+      renderScores();
+    }
+  })

@@ -62,10 +62,19 @@ var correctScore = 0;
 var timeScore;
 var totalScore;
 var questionIndex;
-var allScores  = JSON.parse(localStorage.getItem("allScores")) || [];
 var oldScores;
 var today;
+var allScores;
 
+getAllScores();
+
+function getAllScores() {
+    if(localStorage.getItem("allScores") == ""){
+        allScores = [];
+    }else{
+        allScores = JSON.parse(localStorage.getItem("allScores"));
+    }
+}
 
 //Clicking the start button activates the start quiz function
 startBtn.addEventListener("click", startQuiz);
@@ -101,10 +110,8 @@ function endQuiz(){
     submitScore.setAttribute("style","display:block;");
     countdownContainer.setAttribute("style","display:none;");
     today = new Date();
-    dateOfEntry = today.getHours() + ":" + today.getMinutes() + " on " + today.getDate() + "-" + today.getMonth() + "-" + today.getFullYear()
+    dateOfEntry = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + " on " + today.getDate() + "-" + today.getMonth() + "-" + today.getFullYear()
     timeScore = Math.floor( secondsLeft / 5);
-    console.log(secondsLeft);
-    console.log(timeScore);
     
     totalScore = correctScore + timeScore;
     userCorrectScore.textContent = correctScore;
@@ -194,12 +201,20 @@ submitBtn.addEventListener("click",function(){
 
 function updateScores() {
  
-    //Then insert the new score into the allScores array - putting it into score order
+    //Then insert the new score into the allScores array
+    if(allScores.length === 0 && allScores[0] == ""){
+        allScores[0] = {
+            name: username,
+            score: totalScore,
+            date: dateOfEntry,
+        }
+    }else{
+        allScores.push({
+            name: username,
+            score: totalScore,
+            date: dateOfEntry,
+        })
+    }
     //Then store the updated allScores array into the local storage
-    allScores.push({
-        name: username,
-        score: correctScore,
-        date: dateOfEntry,
-    })
     localStorage.setItem("allScores",JSON.stringify(allScores));
 }
