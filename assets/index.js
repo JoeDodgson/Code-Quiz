@@ -50,7 +50,13 @@ var questions = [
           "What standards organisation created the HTML5 markup language?",
         choices: ["Massachusetts Institute of Technology (MIT)", "World Wide Web Consortium (W3C)", "Defense Advanced Research Projects Agency (DARPA)", "The Internet Control Group (ICG)"],
         answer: "World Wide Web Consortium (W3C)"
-      }
+      },
+      {
+          title:
+            "Which of the following is not a valid HTML5 tag?",
+          choices: ["<div>", "<end>", "<code>", "<embed>"],
+          answer: "<end>"
+        }
 ];
 
 //Define the variables
