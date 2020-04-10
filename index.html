@@ -4,30 +4,31 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/style.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+
     <!--Header across top of page - includes logo and navbar-->
     <header>
 
+        <!-- Green header -->
         <div class="row header-green">
   
-          <div class="nav-container">
-  
-            <!--Navigation link at the top left of the page-->
-            <nav>
-                <a class="navbar nav-link" href="./scores.html">View Highscores</a>            
-            </nav>
-  
-          </div>
+            <div class="nav-container">
+    
+                <!--Navigation link at the top left of the page-->
+                <nav>
+                    <a class="navbar nav-link" href="./scores.html">View Highscores</a>            
+                </nav>
+    
+            </div>
   
           <!--Countdown at the top right of the page-->
           <div id="countdown-container">
-            <time style="display:inline;" id="countdown-display">60</time><p style="display:inline;"> s</p>
+            <time id="countdown-display">60</time><p class="display-inline"> s</p>
           </div>
   
         </div>
@@ -36,77 +37,104 @@
 
 
     <main> 
+
         <!--Introduction to quiz-->
         <div class="main-feature" id="introduction">
+
             <!--Title-->
             <div>
                 <h1>Coding Quiz Challenge</h1>
             </div>
+
             <!--Guidance for the quiz-->
             <div class="guidance-text">
-                <p style="text-align: left;">
+
+                <p class="text-left">
                     Try to answer the following code-related questions within the time limit.
                 </p>
-                <h5 style="text-align: left; padding-left: 30px;">
+
+                <h5 class="text-left padding-left-30">
                     Rules:
                 </h5>
+
                 <ul>
-                    <li style="text-align: left;">
+                    <li class="text-left">
                         You will gain 1 point per correct answer.
                     </li>
-                    <li style="text-align: left;">
+                    <li class="text-left">
                         Any incorrect answers will reduce your remaining time by 5 seconds.
                     </li>
-                    <li style="text-align: left;">
+                    <li class="text-left">
                         There are X questions in total.
                     </li>
-                    <li style="text-align: left;">
+                    <li class="text-left">
                         If you complete all of the questions, any remaining time will add more points onto your score.
                     </li>
                 </ul>
+
             </div>
+
+            <!-- Button which starts the quiz -->
             <button id="start-button">Start Quiz</button>
+
         </div>
 
         <!--Quiz questions-->
         <div class="main-feature" id="questions-choices">
-            <!--Question title-->
-            <div>
+
+            <!--Question-->
+            <div id="question-container">
                 <h3 id="question"></h3>
             </div>
-            <ol id="choices" style="text-align: left; font-size: 24px;">
-                <li>placeholder - to be kicked out</li>
+
+            <!-- Choices appear here. The user clicks on their chosen answer -->
+            <ol id="choices">
             </ol>
         </div>
 
-        <!--Submit Score-->
+        <!-- Score summary and submit score -->
         <div class="main-feature" id="submit-score">
-            <!--Header-->
-            <div>
-                <h3>All done!</h3>
+
+            <!-- Header -->
+            <div class="margin-bottom-30">
+                <h2>All done!</h2>
             </div>
-            <div style="display:none;" id="correct-score-container">
-                <p style="display:inline; float:left;">No. correct answers =  </p>
-                <p style="display:inline; float:left; margin-left:10px;" id="user-correct-score"></p>
-            </div>
-            <br>
-            <div style="display:none" id="time-score-container">
-                <p style="display:inline; float:left;">Remaining time bonus = </p>
-                <p style="display:inline; float:left; margin-left:10px;" id="user-time-score"></p>
+
+            <!-- Display number of correct answers -->
+            <div class="no-display" id="correct-score-container">
+                <p class="pull-left">No. correct answers =  </p>
+                <p class="pull-left margin-left-10" id="user-correct-score"></p>
             </div>
             <br>
-            <div style="display:none" id="total-score-container">
-                <p style="display:inline; float:left;">So your total score =  </p>
-                <p style="display:inline; float:left; margin-left:10px;" id="user-total-score"></p>
-                <p style="display:inline; float:left; margin-left:10px;"> points!</p>
+
+            <!-- Display remaining time bonus -->
+            <div class="no-display" id="time-score-container">
+                <p class="pull-left">Remaining time bonus = </p>
+                <p class="pull-left margin-left-10" id="user-time-score"></p>
             </div>
             <br>
-            <form style="margin-top:30px;">
-                <p style="display:inline; float:left; text-align:left;">Enter name:</p>
-                <div class="form-group" style="display:inline; float:left; width:100px; margin-left:10px; height:100%;">
+
+            <!-- Display total score -->
+            <div class="no-display" id="total-score-container">
+                <p class="pull-left">So your total score =  </p>
+                <p class="pull-left margin-left-10" id="user-total-score"></p>
+                <p class="pull-left margin-left-10"> points!</p>
+            </div>
+            <br>
+            
+            <!-- Submit score section -->
+            <form class="no-display" id="enter-and-submit">
+                
+                <p class="pull-left" id="enter-name-static">Enter name:</p>
+
+                <!-- User enters their name in the form -->
+                <div class="form-group">
                     <input type="text" class="form-control" id="name-input"/>
                 </div>
-                <button style="display:inline; float:left; margin:0px 10px 0px 10px;" id="submit-button">Submit</button>
+                
+                <!-- Button to submit score to the Highscores -->
+                <button class="pull-left" id="submit-button">Submit</button>
+
             </form>
         </div>
 

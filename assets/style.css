@@ -1,16 +1,44 @@
+/* Nav bar */
 .header-green {
-  height: 40px;
+  height: 60px;
   background-color: rgb(2, 165, 24);
   color: white;
   font-family: 'Work Sans', sans-serif;
 }
 
+.nav-container {
+  width: 85%;
+  padding-left: 20px;
+}
+
+.nav-link {
+  color: white;
+  font-size: 18px;
+  width: 200px;
+  margin-top: 8.5px;
+}
+
+#countdown-container {
+  width: 15%;
+  padding: 8px 40px 8px 0px;
+  float: right;
+  display: none;
+  color: white;
+  font-size: 18px;
+  margin-top: 8.5px;
+}
+
+#countdown-display {
+  display: inline;
+}
+
+
+/* Buttons */
 #start-button {
   border: none;
   background-color: rgb(2, 165, 24);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: white;
   display: inline-block;
   font-size: 22px;
@@ -20,47 +48,6 @@
   text-align: center;
   cursor: pointer;
 }
-  
-.nav-container {
-  width: 85%;
-  height: 50px;
-  padding-left: 20px;
-}
-
-.nav-link {
-  color: white;
-  width: 175px;
-}
-
-#countdown-container {
-  width: 15%;
-  height: 50px;
-  padding: 8px 40px 8px 0px;
-  float: right;
-  display: none;
-}
-
-.main-feature {
-  width:50%;
-  text-align:center;
-  float:none;
-  margin:200px auto auto auto;
-  font-family:'Work Sans', sans-serif;
-}
-
-.guidance-text {
-  margin-top:30px;
-}
-
-.h3 {
-  font-size: 18pt;
-}
-
-.choices {
-  text-align: left;
-  padding-left: 50px;
-  font-size: 14pt;
-}
 
 #submit-button {
   border: none;
@@ -68,28 +55,11 @@
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: white;
-  display: inline-block;
   font-size: 1rem;
   margin: 8px;
   padding: 0px 5px 0px 5px;
-  text-align: center;
   cursor: pointer;
-}
-
-#introduction{
-  display: block;
-}
-
-#questions-choices{
-  display: none;
-}
-
-#submit-score{
-  display: none;
-}
-
-#user-score{
-  margin-left: 5px;
+  margin:10px 10px 0px 10px;
 }
 
 #clear-button {
@@ -104,4 +74,187 @@
   padding: 0px 5px 0px 5px;
   text-align: center;
   cursor: pointer;
+}
+
+/* Section containers */
+#choices {
+  text-align: left;
+  font-size: 24px;
+}
+
+.main-feature {
+  width:50%;
+  text-align:center;
+  float:none;
+  margin:200px auto auto auto;
+  font-family:'Work Sans', sans-serif;
+}
+
+.guidance-text {
+  margin-top:30px;
+}
+
+.choices {
+  text-align: left;
+  padding-left: 50px;
+  font-size: 14pt;
+}
+
+#introduction{
+  display: block;
+}
+
+#questions-choices{
+  display: none;
+}
+
+#question-container{
+  height: 225px;
+  position: relative;
+}
+
+#question{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#submit-score{
+  display: none;
+}
+
+#user-score{
+  margin-left: 5px;
+}
+
+.score-breakdown{
+  display: block;
+  width: 100%;
+  float: left;
+}
+
+.form-group{
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  height: 100%;
+}
+
+.score-breakdown:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#scores-table{
+  display: table;
+}
+
+#enter-name-static{
+  margin-top: 7.5px;
+}
+
+
+/* General styling */
+.display-inline {
+  display: inline;
+}
+
+.padding-left-30 {
+  padding-left: 30px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.full-center{
+  text-align: center;
+  width: 100%;
+}
+
+.padding-left-15 {
+  margin-left: 15px;
+}
+
+.margin-bottom-30{
+  margin-bottom: 30px;
+}
+
+.pull-left{
+  display:block;
+  float:left;
+  text-align: left;
+}
+
+.margin-left-10{
+  margin-left: 10px;
+}
+
+.margin-top-30{
+  margin-top: 30px;
+}
+
+.no-display {
+  display: none;
+}
+
+.h3 {
+  font-size: 18pt;
+}
+
+
+/* Media query - responsiveness */
+
+@media (min-width: 0px) and (max-width: 768px){
+  #enter-name-static{
+    display: block;
+    text-align: center;
+    float: none;
+  }
+  
+  .form-group{
+    width: 100%;
+    display: block;
+  }
+  
+  .form-control{
+    width: 100%;
+  }
+  
+  #submit-button{
+    float: none;
+    text-align: center;
+    display: inline;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+  #enter-name-static{
+    display: inline;
+  }
+
+  .form-group{
+  width: 175px;
+  display: block;
+  }
+
+  .form-control{
+  width: 100%;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1800px){
+  #enter-name-static{
+    display: inline;
+  }
+
+  .form-group{
+  width: 300px;
+  display: block;
+  }
+
+  .form-control{
+  width: 100%;
+  }
 }

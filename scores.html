@@ -14,28 +14,36 @@
     <!--Header across top of page - includes logo and navbar-->
     <header>
 
+        <!-- Green header -->
         <div class="row header-green">
   
-          <div class="nav-container">
-  
-            <!--Navigation link at the top left of the page-->
-            <nav>
-                <a class="navbar nav-link" href="./index.html">Back to the quiz</a>            
-            </nav>
-  
-          </div>
+            <div class="nav-container">
+    
+                <!--Navigation link at the top left of the page-->
+                <nav>
+                    <a class="navbar nav-link" href="./index.html">Back to the quiz</a>            
+                </nav>
+    
+            </div>
   
         </div>
+
     </header>
 
     <main>
-        <!--Highscores list-->
+
+        <!-- Highscores list -->
         <div class="main-feature">
-            <!--Title-->
+
+            <!-- Title -->
             <div>
                 <h1>Highscores</h1>
             </div>
+
+            <!-- Table of Highscores -->
             <table class="d-none" id="scores-table">
+
+                <!-- Table top row (heading) -->
                 <thead>
                     <tr>
                         <td>Name</td>
@@ -43,14 +51,19 @@
                         <td>Date</td>
                     </tr>
                 </thead>
-                <tbody id="scores-display">
 
+                <!-- Body of the table - scores are displayed here -->
+                <tbody id="scores-display">
                 </tbody>
+
             </table>
             
-            <div style="text-align: center; width: 100%;">
-                <!--Clear scores button-->
-                <button style="display:inline; float:none;" id="clear-button">Clear Highscores</button>
+            <!-- Container for the clear scores button -->
+            <div class="full-center">
+
+                <!-- Clear scores button -->
+                <button id="clear-button">Clear Highscores</button>
+
             </div>
 
         </div>
