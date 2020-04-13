@@ -144,7 +144,7 @@ function startQuiz(){
 
 // Start timer function sets the time to 60 and begins the countdown
 function startTimer(){
-    secondsLeft = 5;
+    secondsLeft = 60;
     interval = setInterval(function() {
         secondsLeft--;
         renderTime();

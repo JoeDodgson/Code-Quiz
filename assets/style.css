@@ -82,11 +82,15 @@
   font-size: 24px;
 }
 
+#questions-choices{
+  margin-top: 50px;
+}
+
 .main-feature {
   width:50%;
   text-align:center;
   float:none;
-  margin:200px auto auto auto;
+  margin:150px auto auto auto;
   font-family:'Work Sans', sans-serif;
 }
 
