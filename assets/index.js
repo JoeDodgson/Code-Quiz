@@ -96,7 +96,7 @@ var allScores;
 // Function which pulls the scores from the local storage
 function getAllScores() {
     // If the allScores array is empty, then initialise it as an empty array
-    if(localStorage.getItem("allScores") == ""){
+    if(!localStorage.getItem("allScores")){
         allScores = [];
     }
     else{
@@ -171,8 +171,20 @@ function endQuiz(){
     // Timestamp of when the user finished the quiz
     today = new Date();
 
+    dateOfEntryArray = [
+        today.getHours(),
+        today.getMinutes(),
+        today.getSeconds(),
+        today.getDate(),
+        today.getMonth(),
+        today.getFullYear()
+    ]
+
+    //Add a zero in front of the hour, minute, seconds, date and month if less than 10
+    dateOfEntryArray.forEach(formatDate);
+
     // Turn the timestamp of finishing the quiz into a string
-    dateOfEntry = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + " on " + today.getDate() + "-" + today.getMonth() + "-" + today.getFullYear()
+    dateOfEntry = dateOfEntryArray[0] + ":" + dateOfEntryArray[1] + ":" + dateOfEntryArray[2] + " on " + dateOfEntryArray[3] + "-" + dateOfEntryArray[4] + "-" + dateOfEntryArray[5];
     
     // If the time score was not assigned (i.e. seconds left reached 0) then set timeScore to 0
     if(typeof timeScore !== "num"){
@@ -214,6 +226,12 @@ function endQuiz(){
 
     }, 1000
     ); 
+}
+
+function formatDate(item, index, arr){
+    if(arr[index] < 10){
+        arr[index] = "0" + arr[index];
+    }
 }
 
 // Shows the number of seconds remaining in the top right hand corner of the page

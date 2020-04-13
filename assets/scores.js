@@ -50,7 +50,7 @@ function renderScores() {
 function getAllScores() {
 
   // If the allScores array is not initialised, initialise it with an empty array
-  if(localStorage.getItem("allScores") == ""){
+  if(!localStorage.getItem("allScores")){
     allScores = [];
   }
   else{
