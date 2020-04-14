@@ -146,7 +146,7 @@ function startQuiz(){
 function startTimer(){
     secondsLeft = 60;
     interval = setInterval(function() {
-        secondsLeft--;
+        // secondsLeft--;
         renderTime();
         if(secondsLeft < 1){
             clearInterval(interval);
@@ -255,6 +255,7 @@ function renderQuestion(){
     //Populate this question's choices
     for(var i=0; i < shuffledQuestions[questionIndex].choices.length; i++){
         var newLi = document.createElement("li");
+        newLi.classList.add("answer-choice");
         newLi.textContent = shuffledQuestions[questionIndex].choices[i];
         choices.appendChild(newLi);
     }

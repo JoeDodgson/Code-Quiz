@@ -207,6 +207,29 @@
   font-size: 18pt;
 }
 
+.answer-choice {
+  color: black;
+  background: rgb(208, 208, 236);
+  margin-top: 10px;
+  border-radius: 10px;
+  float: left;
+  /* display: inline-block; */
+  width: auto;
+  clear: both;
+  padding: 0px 5px 0px 5px;
+}
+
+.answer-choice:hover {
+  color: black;
+  background: rgb(163, 163, 243);
+  margin-top: 10px;
+  border-radius: 10px;
+  float: left;
+  /* display: inline-block; */
+  width: auto;
+  clear: both;
+  padding: 0px 5px 0px 5px;
+}
 
 /* Media query - responsiveness */
 
